@@ -1,0 +1,14 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 0.1.0
+_src_path: gh:radio-aktywne/template-service-generic
+accountname: radio-aktywne
+description: Users identity 👤
+docs: true
+docsurl: https://radio-aktywne.github.io/falcon
+envprefix: FALCON
+imagename: services/falcon
+registry: true
+releases: true
+reponame: falcon
+repourl: https://github.com/radio-aktywne/falcon
+servicename: falcon

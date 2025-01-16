@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "traits": {
+      "type": "object",
+      "properties": {
+        "names": {
+          "type": "object",
+          "properties": {
+            "display": {
+              "title": "Display name",
+              "type": "string"
+            }
+          },
+          "required": ["display"],
+          "additionalProperties": false
+        },
+        "pictures": {
+          "type": "object",
+          "properties": {
+            "profile": {
+              "type": "object",
+              "properties": {
+                "url": {
+                  "title": "Profile picture URL",
+                  "type": "string",
+                  "format": "uri"
+                }
+              },
+              "required": [],
+              "minProperties": 1,
+              "additionalProperties": false
+            }
+          },
+          "required": [],
+          "minProperties": 1,
+          "additionalProperties": false
+        },
+        "locales": {
+          "type": "object",
+          "properties": {
+            "preferred": {
+              "title": "Preferred locale",
+              "type": "string"
+            }
+          },
+          "required": [],
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": ["names"],
+      "additionalProperties": false
+    }
+  },
+  "required": ["traits"],
+  "additionalProperties": false
+}
