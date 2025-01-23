@@ -9,7 +9,6 @@
           "type": "object",
           "properties": {
             "display": {
-              "title": "Display name",
               "type": "string"
             }
           },
@@ -23,30 +22,25 @@
               "type": "object",
               "properties": {
                 "url": {
-                  "title": "Profile picture URL",
                   "type": "string",
                   "format": "uri"
                 }
               },
               "required": [],
-              "minProperties": 1,
               "additionalProperties": false
             }
           },
           "required": [],
-          "minProperties": 1,
           "additionalProperties": false
         },
         "locales": {
           "type": "object",
           "properties": {
             "preferred": {
-              "title": "Preferred locale",
               "type": "string"
             }
           },
           "required": [],
-          "minProperties": 1,
           "additionalProperties": false
         }
       },

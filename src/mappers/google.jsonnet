@@ -3,15 +3,15 @@ local claims = std.extVar('claims');
 {
   identity: {
     traits: {
-      [if 'name' in claims then 'names']: {
+      names: {
         [if 'name' in claims then 'display']: claims.name,
       },
-      [if 'picture' in claims then 'pictures']: {
-        [if 'picture' in claims then 'profile']: {
+      pictures: {
+        profile: {
           [if 'picture' in claims then 'url']: claims.picture,
         },
       },
-      [if 'locale' in claims then 'locales']: {
+      locales: {
         [if 'locale' in claims then 'preferred']: claims.locale,
       },
     },
