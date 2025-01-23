@@ -166,7 +166,7 @@ selfservice:
 
             # Jsonnet Mapper URL.
             # The URL where the jsonnet source is located for mapping the provider's data to Ory Kratos data.
-            mapper_url: file://src/mappers/google.jsonnet
+            mapper_url: {{ env.Getenv "KRATOS__MAPPERS__GOOGLE" | strings.Quote }}
 
             # Scopes to request from the provider.
             scope:

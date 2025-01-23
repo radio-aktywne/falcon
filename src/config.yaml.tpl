@@ -78,5 +78,8 @@ oidc:
     # Client secret to authenticate with the IdP
     secret: {{ env.Getenv "FALCON__OIDC__GOOGLE__SECRET" "secret" | strings.Quote }}
 
+    # Domain of the Google organization
+    domain: {{ env.Getenv "FALCON__OIDC__GOOGLE__DOMAIN" | strings.Quote | strings.TrimPrefix `""` | default "null" }}
+
 # Enable debug mode
 debug: {{ env.Getenv "FALCON__DEBUG" "true" | conv.ToBool }}
