@@ -7,10 +7,19 @@ gomplate \
 	--file src/config.yaml.tpl \
 	--out "${tmpconfig}"
 
+tmpgooglemapper="$(mktemp --suffix=.jsonnet)"
+
+# Fill values in mappers
+gomplate \
+	--file src/mappers/google.jsonnet.tpl \
+	--datasource config="${tmpconfig}" \
+	--out "${tmpgooglemapper}"
+
 tmpkratos="$(mktemp --suffix=.yaml)"
 
 # Fill values in the Ory Kratos configuration file
-gomplate \
+KRATOS__MAPPERS__GOOGLE="file://${tmpgooglemapper}" \
+	gomplate \
 	--file src/kratos.yaml.tpl \
 	--datasource config="${tmpconfig}" \
 	--out "${tmpkratos}"
@@ -33,4 +42,4 @@ kratos \
 	--config "${tmpkratos}"
 
 # Clean up
-rm --force "${tmpconfig}" "${tmpkratos}"
+rm --force "${tmpconfig}" "${tmpgooglemapper}" "${tmpkratos}"

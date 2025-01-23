@@ -58,6 +58,9 @@ You can configure the service at runtime using various environment variables:
 - `FALCON__OIDC__GOOGLE__SECRET` -
   client secret to authenticate with Google IdP
   (default: `secret`)
+- `FALCON__OIDC__GOOGLE__DOMAIN` -
+  domain of the Google organization
+  (default: ``)
 - `FALCON__DEBUG` -
   enable debug mode
   (default: `true`)
