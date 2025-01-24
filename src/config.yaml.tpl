@@ -19,6 +19,11 @@ urls:
   # Admin URL
   admin: {{ env.Getenv "FALCON__URLS__ADMIN" "http://localhost:20101" | strings.Quote }}
 
+# Configuration for the cookies
+cookies:
+  # Domain for the cookies
+  domain: {{ env.Getenv "FALCON__COOKIES__DOMAIN" | strings.Quote | strings.TrimPrefix `""` | default "null" }}
+
 # Configuration of the secrets
 secrets:
   # Default secrets

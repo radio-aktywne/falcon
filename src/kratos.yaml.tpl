@@ -250,6 +250,12 @@ secrets:
 # HTTP Cookie Configuration.
 # Configure the HTTP Cookies. Applies to both CSRF and session cookies.
 cookies:
+  {{ if ( ds "config" ).cookies.domain -}}
+  # HTTP Cookie Domain.
+  # Sets the cookie domain for session and CSRF cookies. Useful when dealing with subdomains. Use with care!
+  domain: {{ ( ds "config" ).cookies.domain | strings.Quote }}
+
+  {{ end -}}
   # HTTP Cookie Same Site Configuration.
   # Sets the session and CSRF cookie SameSite.
   same_site: Lax

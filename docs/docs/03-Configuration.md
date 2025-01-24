@@ -22,6 +22,9 @@ You can configure the service at runtime using various environment variables:
 - `FALCON__URLS__ADMIN` -
   admin URL
   (default: `http://localhost:20101`)
+- `FALCON__COOKIES__DOMAIN` -
+  domain for the cookies
+  (default: ``)
 - `FALCON__SECRETS__DEFAULT` -
   default secrets
   (default: `XXXXXXXXXXXXXXXX`)
