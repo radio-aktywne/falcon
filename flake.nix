@@ -43,6 +43,7 @@
         copier = pkgs.copier;
         # Build Ory Kratos manually to use the latest version
         kratos = pkgs.callPackage ./kratos.nix {};
+        cacert = pkgs.cacert;
         gomplate = pkgs.gomplate;
         yq = pkgs.yq-go;
         jsonnet = pkgs.go-jsonnet;
@@ -78,6 +79,7 @@
               trunk
               copier
               kratos
+              cacert
               gomplate
               yq
               jsonnet
@@ -93,6 +95,7 @@
 
             packages = [
               kratos
+              cacert
               gomplate
               yq
               tini
