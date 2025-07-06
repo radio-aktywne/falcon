@@ -2,7 +2,7 @@
 {{- $host := ( ds "config" ).obsidian.sql.host -}}
 {{- $port := ( ds "config" ).obsidian.sql.port -}}
 {{- $password := ( ds "config" ).obsidian.sql.password -}}
-cockroach://user:{{ print $password }}@{{ print $host }}:{{ print $port }}/database
+postgres://user:{{ print $password }}@{{ print $host }}:{{ print $port }}/database
 {{- end -}}
 
 {{- define "orchid.public.url" -}}
