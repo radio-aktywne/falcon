@@ -1,7 +1,7 @@
 {
   inputs = {
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-24.11";
+      url = "github:NixOS/nixpkgs/nixos-25.05";
     };
 
     flake-parts = {
@@ -35,14 +35,14 @@
         system,
         ...
       }: let
+        nix = pkgs.nix;
         node = pkgs.nodejs;
         nil = pkgs.nil;
         task = pkgs.go-task;
         coreutils = pkgs.coreutils;
         trunk = pkgs.trunk-io;
-        copier = pkgs.copier;
-        # Build Ory Kratos manually to use the latest version
-        kratos = pkgs.callPackage ./kratos.nix {};
+        copier = pkgs.python313.withPackages (ps: [ps.copier]);
+        kratos = pkgs.kratos;
         cacert = pkgs.cacert;
         gomplate = pkgs.gomplate;
         yq = pkgs.yq-go;
@@ -72,6 +72,7 @@
             name = "dev";
 
             packages = [
+              nix
               node
               nil
               task
@@ -109,24 +110,11 @@
             '';
           };
 
-          template = pkgs.mkShell {
-            name = "template";
-
-            packages = [
-              task
-              coreutils
-              copier
-            ];
-
-            shellHook = ''
-              export TMPDIR=/tmp
-            '';
-          };
-
           lint = pkgs.mkShell {
             name = "lint";
 
             packages = [
+              nix
               node
               task
               coreutils

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-Users identity 👤
+Users identity service 👤
 
 [![Lint](https://github.com/radio-aktywne/falcon/actions/workflows/lint.yaml/badge.svg)](https://github.com/radio-aktywne/falcon/actions/workflows/lint.yaml)
 [![Image](https://github.com/radio-aktywne/falcon/actions/workflows/image.yaml/badge.svg)](https://github.com/radio-aktywne/falcon/actions/workflows/image.yaml)

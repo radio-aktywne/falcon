@@ -273,5 +273,4 @@ session:
     name: falcon-session
 
 # The kratos version this config is written for.
-# SemVer according to https://semver.org/ prefixed with `v` as in our releases.
-version: v1.3.1
+version: 1.3.1
