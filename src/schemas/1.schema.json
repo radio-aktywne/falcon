@@ -1,53 +1,53 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
+  "additionalProperties": false,
   "properties": {
     "traits": {
-      "type": "object",
+      "additionalProperties": false,
       "properties": {
-        "names": {
-          "type": "object",
-          "properties": {
-            "display": {
-              "type": "string"
-            }
-          },
-          "required": ["display"],
-          "additionalProperties": false
-        },
-        "pictures": {
-          "type": "object",
-          "properties": {
-            "profile": {
-              "type": "object",
-              "properties": {
-                "url": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              },
-              "required": [],
-              "additionalProperties": false
-            }
-          },
-          "required": [],
-          "additionalProperties": false
-        },
         "locales": {
-          "type": "object",
+          "additionalProperties": false,
           "properties": {
             "preferred": {
               "type": "string"
             }
           },
           "required": [],
-          "additionalProperties": false
+          "type": "object"
+        },
+        "names": {
+          "additionalProperties": false,
+          "properties": {
+            "display": {
+              "type": "string"
+            }
+          },
+          "required": ["display"],
+          "type": "object"
+        },
+        "pictures": {
+          "additionalProperties": false,
+          "properties": {
+            "profile": {
+              "additionalProperties": false,
+              "properties": {
+                "url": {
+                  "format": "uri",
+                  "type": "string"
+                }
+              },
+              "required": [],
+              "type": "object"
+            }
+          },
+          "required": [],
+          "type": "object"
         }
       },
       "required": ["names"],
-      "additionalProperties": false
+      "type": "object"
     }
   },
   "required": ["traits"],
-  "additionalProperties": false
+  "type": "object"
 }
