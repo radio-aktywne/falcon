@@ -270,7 +270,7 @@ session:
   cookie:
     # Session Cookie Name.
     # Sets the session cookie name. Use with care!
-    name: falcon-session
+    name: __Http-falcon-session
 
 # The kratos version this config is written for.
 version: 1.3.1
