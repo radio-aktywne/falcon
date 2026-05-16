@@ -270,7 +270,7 @@ session:
   cookie:
     # Session Cookie Name.
     # Sets the session cookie name. Use with care!
-    name: __Http-falcon-session
+    name: {{ if not ( ds "config" ).debug }}__Http-{{ end }}falcon-session
 
 # The kratos version this config is written for.
 version: 1.3.1
