@@ -62,15 +62,15 @@ secrets:
     - {{ . | strings.Quote }}
     {{- end }}
 
-  # Pagination secrets
-  pagination:
-    {{- range ( env.Getenv "FALCON__SECRETS__PAGINATION" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | strings.Split "," ) }}
-    - {{ . | strings.Quote }}
-    {{- end }}
-
   # Default secrets
   default:
     {{- range ( env.Getenv "FALCON__SECRETS__DEFAULT" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | strings.Split "," ) }}
+    - {{ . | strings.Quote }}
+    {{- end }}
+
+  # Pagination secrets
+  pagination:
+    {{- range ( env.Getenv "FALCON__SECRETS__PAGINATION" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | strings.Split "," ) }}
     - {{ . | strings.Quote }}
     {{- end }}
 

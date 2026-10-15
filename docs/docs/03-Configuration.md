@@ -49,11 +49,11 @@ You can configure the service at runtime using various environment variables:
 - `FALCON__SECRETS__COOKIE` -
   cookie secrets
   (default: `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
-- `FALCON__SECRETS__PAGINATION` -
-  pagination secrets
-  (default: `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
 - `FALCON__SECRETS__DEFAULT` -
   default secrets
+  (default: `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
+- `FALCON__SECRETS__PAGINATION` -
+  pagination secrets
   (default: `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
 - `FALCON__SERVER__HOST` -
   host to run the server on
