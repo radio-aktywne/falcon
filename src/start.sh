@@ -41,7 +41,7 @@ startmigrations() {
 
 	echo "Running migrations..."
 
-	kratos migrate sql --yes --config "${1}" "${dsn}" &
+	kratos migrate sql up --yes --config "${1}" "${dsn}" &
 }
 
 # Function to start Ory Kratos
