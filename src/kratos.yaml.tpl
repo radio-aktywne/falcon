@@ -16,7 +16,7 @@ postgres://user:{{ print $password }}@{{ print $host }}:{{ print $port }}/databa
 # Self-service configuration.
 selfservice:
   # Redirect browsers to set URL per default.
-  # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.sh/kratos/docs/concepts/browser-redirect-flow-completion).
+  # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.com/kratos/docs/concepts/browser-redirect-flow-completion).
   default_browser_return_url: "{{ template "orchid.public.url" . }}/default"
 
   # Allowed Return To URLs.
@@ -35,7 +35,7 @@ selfservice:
       # Configuration of behavior after completing the flow.
       after:
         # Redirect browsers to set URL per default.
-        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.sh/kratos/docs/concepts/browser-redirect-flow-completion).
+        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.com/kratos/docs/concepts/browser-redirect-flow-completion).
         default_browser_return_url: "{{ template "orchid.public.url" . }}/settings/callback"
 
     # Configuration of registration flow.
@@ -43,13 +43,13 @@ selfservice:
       # Configuration of behavior after completing the flow.
       after:
         # Redirect browsers to set URL per default.
-        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.sh/kratos/docs/concepts/browser-redirect-flow-completion).
+        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.com/kratos/docs/concepts/browser-redirect-flow-completion).
         default_browser_return_url: "{{ template "orchid.public.url" . }}/logout/callback"
 
     # Configuration of registration flow.
     registration:
       # Enable User Registration.
-      # If set to true will enable [User Registration](https://www.ory.sh/kratos/docs/self-service/flows/user-registration/).
+      # If set to true will enable [User Registration](https://www.ory.com/kratos/docs/self-service/flows/user-registration/).
       enabled: true
 
       # Registration UI URL.
@@ -59,7 +59,7 @@ selfservice:
       # Configuration of behavior after completing the flow.
       after:
         # Redirect browsers to set URL per default.
-        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.sh/kratos/docs/concepts/browser-redirect-flow-completion).
+        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.com/kratos/docs/concepts/browser-redirect-flow-completion).
         default_browser_return_url: "{{ template "orchid.public.url" . }}/registration/callback"
 
         # Configuration of behavior after completing the flow when OIDC method is used.
@@ -78,19 +78,19 @@ selfservice:
       # Configuration of behavior after completing the flow.
       after:
         # Redirect browsers to set URL per default.
-        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.sh/kratos/docs/concepts/browser-redirect-flow-completion).
+        # Ory Kratos redirects to this URL per default on completion of self-service flows and other browser interaction. Read this [article for more information on browser redirects](https://www.ory.com/kratos/docs/concepts/browser-redirect-flow-completion).
         default_browser_return_url: "{{ template "orchid.public.url" . }}/login/callback"
 
     # Configuration of recovery flow.
     verification:
-      # Disable Email/Phone Verification.
-      # If set to true will enable [Email and Phone Verification and Account Activation](https://www.ory.sh/kratos/docs/self-service/flows/verify-email-account-activation/).
+      # Enable Email/Phone Verification.
+      # If set to true will enable [Email and Phone Verification and Account Activation](https://www.ory.com/kratos/docs/self-service/flows/verify-email-account-activation/).
       enabled: false
 
     # Configuration of recovery flow.
     recovery:
-      # Disable Account Recovery.
-      # If set to true will enable [Account Recovery](https://www.ory.sh/kratos/docs/self-service/flows/password-reset-account-recovery/).
+      # Enable Account Recovery.
+      # If set to true will enable [Account Recovery](https://www.ory.com/kratos/docs/self-service/flows/password-reset-account-recovery/).
       enabled: false
 
     # Configuration of error flow.
@@ -103,47 +103,47 @@ selfservice:
   methods:
     # Configuration of the profile method.
     profile:
-      # Enable Profile Management Method.
+      # Enables Profile Management Method.
       enabled: true
 
     # Configuration of the link method.
     link:
-      # Disable Link Method.
+      # Enables Link Method.
       enabled: false
 
     # Configuration of the code method.
     code:
-      # Disable Code Method.
+      # Enables Code Method.
       enabled: false
 
     # Configuration of the password method.
     password:
-      # Disable Username/Email and Password Method.
+      # Enables Username/Email and Password Method.
       enabled: false
 
     # Configuration of the TOTP method.
     totp:
-      # Disable the TOTP method.
+      # Enables the TOTP method.
       enabled: false
 
     # Configuration of the lookup secret method.
     lookup_secret:
-      # Disable the lookup secret method.
+      # Enables the lookup secret method.
       enabled: false
 
     # Configuration of the WebAuthn method.
     webauthn:
-      # Disable the WebAuthn method.
+      # Enables the WebAuthn method.
       enabled: false
 
     # Configuration of the passkey method.
     passkey:
-      # Disable the Passkey method.
+      # Enables the Passkey method.
       enabled: false
 
     # Configuration of the OIDC method.
     oidc:
-      # Enable OpenID Connect Method.
+      # Enables OpenID Connect Method.
       enabled: true
 
       # Configuration of the OIDC method.
@@ -240,6 +240,13 @@ secrets:
     - {{ . | strings.Quote }}
     {{- end }}
 
+  # Secrets to encrypt the pagination token.
+  # To avoid clients reverse-engineering and relying on the implementation details of the pagination token, it is encrypted with these keys.
+  pagination:
+    {{- range ( ds "config" ).secrets.pagination }}
+    - {{ . | strings.Quote }}
+    {{- end }}
+
   # Secrets to use for encryption by cipher.
   # The first secret in the array is used for encryption data while all other keys are used to decrypt older data that were signed with.
   cipher:
@@ -273,4 +280,5 @@ session:
     name: {{ if not ( ds "config" ).debug }}__Http-{{ end }}falcon-session
 
 # The kratos version this config is written for.
-version: 1.3.1
+# SemVer according to https://semver.org/ prefixed with `v` as in our releases.
+version: v26.2.0

@@ -58,13 +58,19 @@ secrets:
 
   # Cookie secrets
   cookie:
-    {{- range ( env.Getenv "FALCON__SECRETS__COOKIE" "XXXXXXXXXXXXXXXX" | strings.Split "," ) }}
+    {{- range ( env.Getenv "FALCON__SECRETS__COOKIE" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | strings.Split "," ) }}
+    - {{ . | strings.Quote }}
+    {{- end }}
+
+  # Pagination secrets
+  pagination:
+    {{- range ( env.Getenv "FALCON__SECRETS__PAGINATION" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | strings.Split "," ) }}
     - {{ . | strings.Quote }}
     {{- end }}
 
   # Default secrets
   default:
-    {{- range ( env.Getenv "FALCON__SECRETS__DEFAULT" "XXXXXXXXXXXXXXXX" | strings.Split "," ) }}
+    {{- range ( env.Getenv "FALCON__SECRETS__DEFAULT" "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" | strings.Split "," ) }}
     - {{ . | strings.Quote }}
     {{- end }}
 
