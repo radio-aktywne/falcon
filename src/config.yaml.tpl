@@ -48,6 +48,16 @@ orchid:
     # Scheme of the public site
     scheme: {{ env.Getenv "FALCON__ORCHID__PUBLIC__SCHEME" "http" | strings.Quote }}
 
+# Configuration of the redirects
+redirects:
+  # Additional URLs that are allowed to be redirected to
+  allowed:
+    {{- range ( env.Getenv "FALCON__REDIRECTS__ALLOWED" | strings.Split "," ) }}
+    {{- if . }}
+    - {{ . | strings.Quote }}
+    {{- end }}
+    {{- end }}
+
 # Configuration of the secrets
 secrets:
   # Cipher secrets
