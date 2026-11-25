@@ -23,6 +23,9 @@ selfservice:
   # List of URLs that are allowed to be redirected to. A redirection request is made by appending `?return_to=...` to Login, Registration, and other self-service flows.
   allowed_return_urls:
     - "{{ template "orchid.public.url" . }}"
+    {{- range ( ds "config" ).redirects.allowed }}
+    - {{ . | strings.Quote }}
+    {{- end }}
 
   # Configuration of self-service flows.
   flows:

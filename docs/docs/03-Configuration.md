@@ -43,6 +43,9 @@ You can configure the service at runtime using various environment variables:
 - `FALCON__ORCHID__PUBLIC__SCHEME` -
   scheme of the public site of the orchid app
   (default: `http`)
+- `FALCON__REDIRECTS__ALLOWED` -
+  comma-separated additional URLs that are allowed to be redirected to
+  (default: ``)
 - `FALCON__SECRETS__CIPHER` -
   cipher secrets
   (default: `XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX`)
